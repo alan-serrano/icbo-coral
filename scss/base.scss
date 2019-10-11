@@ -1,0 +1,88 @@
+$color-1: #002c69;
+$color-2: #b2b621;
+$color-3: #e86612;
+
+
+@import "fonts.scss";
+@import "utilidades.scss";
+body {
+    font-family: "Colour-Sans";
+    color: white;
+    background-color: $color-1;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background-color: $color-1;
+    // display: flex;
+    // align-items: flex-end;
+    // justify-content: space-between;
+
+    >div.row {
+        flex-grow: 1;
+    }
+
+    .participa {
+        position: relative;
+        font-size: 48px;
+        line-height: 1.15;
+
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            top: 0;
+            right: calc( 100% + 0.5em );
+            height: 100%;
+            width: 8px;
+            background-color: $color-3;
+        }
+    }
+
+    .static /* row */{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .column {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+#promociones {
+    .carousel-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.anuncio {
+    width: 100%;
+    height: 60%;
+    min-width: 460px;
+    min-height: 255px;
+    position: relative;
+    background-color: white;
+
+    border-top-right-radius: 90px;
+    
+
+    img {
+        height: 120%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+
+    }
+}

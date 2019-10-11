@@ -1,0 +1,12 @@
+$size: 0;
+
+@while $size<100 {
+    $size: $size + 5;
+
+    .h-#{$size} {
+        height: #{$size + "%"};
+    }
+    .w-#{$size} {
+        width: #{$size + "%"};
+    }
+}
