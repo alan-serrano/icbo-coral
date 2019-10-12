@@ -5,10 +5,54 @@ $color-3: #e86612;
 
 @import "fonts.scss";
 @import "utilidades.scss";
+
+
 body {
     font-family: "Colour-Sans";
     color: white;
+}
+
+.bg-1 {
     background-color: $color-1;
+    color: white;
+}
+
+.bg-2 {
+    background-color: $color-2;
+    color: $color-1;
+}
+
+.bg-3 {
+    background-color: $color-3;
+    color: white;
+}
+
+.bg-light {
+    color: $color-1;
+}
+
+
+/* Cards de información */
+.card-info {
+    padding: 30px 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.bd-1 {
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.bd-2 {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .hero {
@@ -42,47 +86,170 @@ body {
 
     .static /* row */{
         position: absolute;
-        bottom: 0;
+        bottom: 15%;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 85%;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         justify-content: flex-end;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: 50% 0;
+        }
+
+        .row {
+
+            &:nth-child(1) {
+                height: 100%;
+                padding-top: 30px;
+                padding-right: 1.5vw;
+                padding-bottom: 30px;
+                margin-left: -4.5vw;
+                flex-grow: 1;
+
+                margin-bottom: auto;
+            }
+        }
 
         .column {
             margin-bottom: 20px;
         }
     }
+
+    footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        min-height: 15%;
+        background-color: white;
+        padding-top: 1%;
+        padding-bottom: 1%;
+
+
+        .container-fluid {
+            height: 100%;
+        }
+
+        .row {
+            height: 100%;
+        }
+
+        .column {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-child(1) {
+                align-items: flex-end;
+            }
+        }
+
+        img {
+            height: 100%;
+            margin-right: 0.5em;
+            float: left;
+        }
+        
+    }
 }
 
-#promociones {
+#promociones /* carrusel */{
     .carousel-item {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
     }
-}
 
-.anuncio {
-    width: 100%;
-    height: 60%;
-    min-width: 460px;
-    min-height: 255px;
-    position: relative;
-    background-color: white;
-
-    border-top-right-radius: 90px;
+    .anuncio {
+        width: 100%;
+        height: 60%;
+        min-width: 460px;
+        min-height: 255px;
+        position: relative;
+        background-color: white;
     
-
-    img {
-        height: 120%;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 0);
-
-
+        border-top-right-radius: 90px;
+        
+    
+        img {
+            height: 120%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+    
+    
+        }
     }
 }
+
+
+/* Secciones */
+
+.titulo-seccion {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+}
+
+.como-participar /* section */ {
+    .card {
+        background-color: $color-1;
+        font-size: 29px;
+    }
+
+    .wrapper-img {
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -35px;
+            max-height: 200px;
+            width: auto;
+            object-fit: contain;
+        }
+    }
+}
+
+
+.encuentra-tus-combos {
+    
+ 
+        .card {
+            font-size: 25px;
+    
+        }
+
+        .column {
+            &:nth-child(2) {
+                .card {
+                    margin-top: 75px;
+                }
+            }
+        }
+
+
+    .wrapper-img {
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            // margin-top: -35px;
+            max-height: 300px;
+            width: auto;
+            object-fit: contain;
+        }
+    }
+}
+

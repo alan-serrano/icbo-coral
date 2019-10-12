@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Colour-Sans";
   font-weight: 200;
@@ -188,7 +189,47 @@
 body {
   font-family: "Colour-Sans";
   color: white;
+}
+
+.bg-1 {
   background-color: #002c69;
+  color: white;
+}
+
+.bg-2 {
+  background-color: #b2b621;
+  color: #002c69;
+}
+
+.bg-3 {
+  background-color: #e86612;
+  color: white;
+}
+
+.bg-light {
+  color: #002c69;
+}
+
+/* Cards de información */
+.card-info {
+  padding: 30px 10%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+.card-info p {
+  margin-bottom: 0;
+}
+
+.bd-1 {
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.bd-2 {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .hero {
@@ -216,16 +257,63 @@ body {
 }
 .hero .static {
   position: absolute;
-  bottom: 0;
+  bottom: 15%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 85%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   justify-content: flex-end;
+}
+.hero .static img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 0;
+}
+.hero .static .row:nth-child(1) {
+  height: 100%;
+  padding-top: 30px;
+  padding-right: 1.5vw;
+  padding-bottom: 30px;
+  margin-left: -4.5vw;
+  flex-grow: 1;
+  margin-bottom: auto;
 }
 .hero .static .column {
   margin-bottom: 20px;
+}
+.hero footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  min-height: 15%;
+  background-color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.hero footer .container-fluid {
+  height: 100%;
+}
+.hero footer .row {
+  height: 100%;
+}
+.hero footer .column {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero footer .column:nth-child(1) {
+  align-items: flex-end;
+}
+.hero footer img {
+  height: 100%;
+  margin-right: 0.5em;
+  float: left;
 }
 
 #promociones .carousel-item {
@@ -234,8 +322,7 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-
-.anuncio {
+#promociones .anuncio {
   width: 100%;
   height: 60%;
   min-width: 460px;
@@ -244,12 +331,50 @@ body {
   background-color: white;
   border-top-right-radius: 90px;
 }
-.anuncio img {
+#promociones .anuncio img {
   height: 120%;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+/* Secciones */
+.titulo-seccion {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
+}
+
+.como-participar .card {
+  background-color: #002c69;
+  font-size: 29px;
+}
+.como-participar .wrapper-img img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -35px;
+  max-height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+.encuentra-tus-combos .card {
+  font-size: 25px;
+}
+.encuentra-tus-combos .column:nth-child(2) .card {
+  margin-top: 75px;
+}
+.encuentra-tus-combos .wrapper-img img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=main.css.map */
