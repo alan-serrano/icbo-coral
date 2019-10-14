@@ -2,9 +2,20 @@ $color-1: #002c69;
 $color-2: #b2b621;
 $color-3: #e86612;
 
+// Media queries
+
+$phone-small: 320px;
+$phone: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$desktop-large: 1200px;
+
+
 
 @import "fonts.scss";
 @import "utilidades.scss";
+@import "include-media";
+@import "animate";
 
 
 body {
@@ -31,6 +42,10 @@ body {
     color: $color-1;
 }
 
+.helvetica {
+    font-family: Helvetica;
+}
+
 
 /* Cards de información */
 .card-info {
@@ -38,7 +53,15 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
-    font-size: 30px;
+    font-size: 18px;
+
+    @include media(">=tablet") {
+        font-size: 26px;
+    }
+
+    @include media(">=desktop") {
+        font-size: 30px;
+    }
 
     p {
         margin-bottom: 0;
@@ -57,63 +80,99 @@ body {
 
 .hero {
     position: relative;
-    height: 100vh;
     background-color: $color-1;
-    // display: flex;
-    // align-items: flex-end;
-    // justify-content: space-between;
+    min-height: 100vh;
+    
+    @include media(">=desktop") {
+        height: 100vh;
+    }
 
     >div.row {
         flex-grow: 1;
     }
 
-    .participa {
+    p.participa {
         position: relative;
-        font-size: 48px;
+        font-size: 24px;
+        max-width: 417px;
         line-height: 1.15;
+        margin: auto;
+        padding: 8px;
+        border-bottom: solid 8px $color-3;
+        text-align: center;
 
-        &::before {
-            position: absolute;
-            content: "";
-            display: block;
-            top: 0;
-            right: calc( 100% + 0.5em );
-            height: 100%;
-            width: 8px;
-            background-color: $color-3;
+        @include media(">=desktop") {
+            font-size: 36px;
+            text-align: left;
+            border-bottom: none;
+            max-width: none;
+            border-left: solid 8px $color-3;
+
+        }
+
+        @include media(">=desktop-large") {
+            font-size: 48px;
+        }
+
+        br {
+            @include media("<desktop") {
+                display: none;
+            }
         }
     }
 
-    .static /* row */{
-        position: absolute;
-        bottom: 15%;
-        left: 0;
+    .static /* container */{
         width: 100%;
-        height: 85%;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        justify-content: flex-end;
+        
+        @include media(">=desktop") {
+            justify-content: flex-end;
+            min-height: 0;
+            height: 85vh;
+            object-position: 50% 0;
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             object-position: 50% 0;
+
         }
 
         .row {
-
+            
+            
             &:nth-child(1) {
                 height: 100%;
-                padding-top: 30px;
-                padding-right: 1.5vw;
-                padding-bottom: 30px;
-                margin-left: -4.5vw;
-                flex-grow: 1;
-
-                margin-bottom: auto;
+                
+                @include media(">=desktop") {
+                    margin-bottom: auto;
+                    min-height: 30vh;
+                    height: 1px;
+                    padding-top: 30px;
+                    padding-right: 1.5vw;
+                    padding-bottom: 30px;
+                    margin-left: -4.5vw;
+                    flex-grow: 1;
+                    height: 100%;
+                }
+                .column {
+                    &.titulo {
+                        height: 100%;
+                    }
+                }
+                img {
+                    @include media("<desktop") {
+                        max-height: 250px;
+                    }
+                }
             }
+
+            
         }
 
         .column {
@@ -122,15 +181,24 @@ body {
     }
 
     footer {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        height: 1px;
-        min-height: 15%;
+        height: auto;
         background-color: white;
         padding-top: 1%;
         padding-bottom: 1%;
+        font-size: 14px;
+
+        @include media(">=tablet") {
+            font-size: 1rem;
+        }
+
+        @include media(">=desktop") {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            min-height: 15%;
+        }
 
 
         .container-fluid {
@@ -146,48 +214,182 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 10px;
+            
+            @include media(">=phone") {
+                margin-top: 0;
+
+            }
 
             &:nth-child(1) {
+                margin-top: 0;
                 align-items: flex-end;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+
+            &:nth-child(3) {
+                img {
+                    margin-left: auto;
+                    margin-right: auto;
+                    
+                    @include media(">=phone") {
+                        margin-right: 0;
+                        margin-left: auto;
+        
+                    }
+                }
             }
         }
 
         img {
+            width: auto;
+            max-height: 100px;
             height: 100%;
             margin-right: 0.5em;
-            float: left;
+            
         }
-        
     }
 }
 
+
+
 #promociones /* carrusel */{
+
+
+    margin-left: -15px;
+    margin-right: -15px;
+    // height: 1px;
+    min-height: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-shrink: 1;
+    
+    @include media(">=desktop") {
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 85%;
+    }
+
+    .carousel-inner {
+        height: 100%;
+        width: 100%;
+        
+
+        @include media(">=desktop") {
+            width: 50%;
+        }
+    }
+
     .carousel-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
+        height: 100%;
+        background-color: $color-1;
+        
+        .flex-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @include media(">=desktop") {
+               
+                justify-content: flex-end;
+    
+            }
+        }
+
+        &.active {
+            // display: flex;
+        }
+
+        &.item-1 {
+            @include media("<desktop") {
+                height: 300px;
+            }
+        }
+
+        &.item-2 {
+            @include media("<desktop") {
+                height: 500px;
+            }
+        }
     }
 
     .anuncio {
-        width: 100%;
-        height: 60%;
-        min-width: 460px;
-        min-height: 255px;
+        
+        max-height: calc( 100% - 100px );
+        min-width: calc( 100% - 30px);
         position: relative;
         background-color: white;
-    
         border-top-right-radius: 90px;
+        margin-top: 70px;
+        margin-right: auto;
+        padding-bottom: 20px;
+
+        @include media(">=desktop") {
+            padding-bottom: 0;
+
+            height: 60%;
+        }
         
-    
         img {
-            height: 120%;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, 0);
-    
-    
+            height: calc( 100% + 50px );
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: -50px;
+            max-width: 60vw;
+            object-fit: contain;
+        }
+    }
+
+    .anuncio-left {
+        
+        max-height: calc( 50% - 50px);
+        // min-width: 450px;
+        max-width: 450px;
+        width: calc( 70% - 30px);
+        position: relative;
+        background-color: white;
+        border-top-right-radius: 45px;
+        margin-bottom: 20px;
+        margin-right: auto;
+        padding-bottom: 20px;
+
+        @include media(">=desktop") {
+            max-height: calc( 50% - 50px);
+            padding-bottom: 0;
+            height: 60%;
+        }
+
+        &:last-child {
+            border-top-right-radius: 0;
+            border-top-left-radius: 45px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: 0;
+
+        }
+        
+        img {
+            height: calc( 100% + 30px );
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: -30px;
+            max-width: 60vw;
+            object-fit: contain;
         }
     }
 }
@@ -198,15 +400,38 @@ body {
 .titulo-seccion {
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 30px;
     text-align: center;
+
+    @include media(">=tablet") {
+        font-size: 36px;
+    }
+    @include media(">=desktop") {
+        font-size: 48px;
+    }
 }
 
 .como-participar /* section */ {
     .card {
         background-color: $color-1;
-        font-size: 29px;
+        font-size: 17px;
+
+        @include media(">=tablet") {
+            font-size: 24px;
+        }
+
+        @include media(">=desktop") {
+            font-size: 29px;
+        }
+
+        @include media(">phone", "<desktop") {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
     }
 
     .wrapper-img {
@@ -218,27 +443,77 @@ body {
             max-height: 200px;
             width: auto;
             object-fit: contain;
+            height: 150px;
+
+            @include media(">=phone") {
+                height: auto;
+            }
+    
+            @include media(">=desktop") {
+                
+            }
+
+            @include media(">phone", "<desktop") {
+                margin-top: 0;
+                margin-left: -38px;
+            }
         }
     }
 }
 
 
 .encuentra-tus-combos {
-    
- 
-        .card {
-            font-size: 25px;
-    
+
+    .container {
+
+        @include media(">phone", "<desktop") {
+            max-width: none;
+            padding-left: 0;
+            padding-right: 0;
+
         }
 
-        .column {
-            &:nth-child(2) {
-                .card {
-                    margin-top: 75px;
-                }
-            }
+        .row {
+            @include media(">phone", "<desktop") {
+                margin-left: 0;
+                margin-right: 0;
+    
+            } 
+        }
+    }
+
+    .card {
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-top: 1.5rem;
+
+        
+        @include media (">=phone") {
+            padding-bottom: 1.5rem;    
+        }
+        
+        @include media(">desktop") {
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
+
+        @include media(">phone", "<desktop") {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+    }
 
     .wrapper-img {
         img {
@@ -246,9 +521,83 @@ body {
             margin-left: auto;
             margin-right: auto;
             // margin-top: -35px;
-            max-height: 300px;
+            max-height: 180px;
             width: auto;
             object-fit: contain;
+
+            @include media(">phone", "<desktop") {
+                max-height: 200px;
+                margin-top: 0;
+                margin-left: -90px;
+            }
+
+            @include media(">=desktop") {
+                max-height: 300px;
+            }
+        }
+    }
+    
+
+    .column {
+        text-align: center;
+        
+        @include media(">phone", "<desktop") {
+            padding-left: 0;
+            padding-right: 0;
+            flex-basis: 70%;
+        }
+
+        &:nth-child(1) {
+
+            @include media(">phone", "<desktop") {
+                text-align: right;
+            }
+
+            margin-left: auto;
+
+
+            .card {
+                
+                @include media(">=phone") {
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+
+            @include media(">phone", "<desktop") {
+                text-align: left;
+            }
+            .card {
+
+                margin-top: 75px;
+                
+                @include media(">=phone") {
+                    border-bottom-left-radius: 0;
+                }
+                
+
+                @include media("<desktop") {
+                    
+                    margin-top: 0;                
+                }
+            }
+
+            .card-body {
+                
+                @include media(">phone", "<desktop") {
+                    order: -1;
+                }
+            }
+
+            img {
+
+                @include media(">phone", "<desktop") {
+                    margin-left: 0;
+                    margin-right: -150px;
+                }
+            }
         }
     }
 }

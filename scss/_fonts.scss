@@ -26,3 +26,14 @@
     Cabin, Cabin Regular o Cabin-Regular */
     src:url('../fonts/Colour-Sans/Colour\ Sans-Bold.otf') format('opentype');
 }
+
+
+@font-face {
+    font-family: 'helvetica';
+    font-weight: 400;
+    font-style: normal;
+    /* Antes de descargar el archivo, le decimos al buscador
+    que intente buscar en local la fuente con nombre
+    Cabin, Cabin Regular o Cabin-Regular */
+    src:url('../fonts/Colour-Sans/Helvetica2.ttf') format('opentype');
+}
