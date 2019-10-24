@@ -3587,6 +3587,13 @@ body {
   }
 }
 
+/* Video */
+section.video .wrapper {
+  height: auto;
+  max-width: 500px;
+}
+
+/* Cómo participar */
 .como-participar .card {
   background-color: #002c69;
   font-size: 17px;

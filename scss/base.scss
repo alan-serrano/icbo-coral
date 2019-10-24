@@ -311,9 +311,6 @@ body {
             }
         }
 
-        &.active {
-            // display: flex;
-        }
 
         &.item-1 {
             @include media("<desktop") {
@@ -414,6 +411,18 @@ body {
     }
 }
 
+
+/* Video */
+
+section.video {
+    .wrapper {
+        height: auto;
+        max-width: 500px;
+    }
+}
+
+/* Cómo participar */
+
 .como-participar /* section */ {
     .card {
         background-color: $color-1;
@@ -460,6 +469,8 @@ body {
         }
     }
 }
+
+
 
 
 .encuentra-tus-combos {
@@ -600,5 +611,10 @@ body {
             }
         }
     }
+}
+
+
+section.contacto {
+    
 }
 
